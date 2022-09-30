@@ -16,6 +16,7 @@ RUN echo ${ARG_PU_PWD} | sudo -S apt-get install -y salt-cloud
 RUN echo ${ARG_PU_PWD} | sudo -S apt-get install -y salt-api
 USER root
 # Salt-Master config
+RUN sh -c "mkdir /etc/salt/master.d"
 RUN sh -c "echo 'instance: 0.0.0.0' | tee -a /etc/salt/master.d/master.conf"
 EXPOSE 4505
 EXPOSE 4506
