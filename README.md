@@ -8,13 +8,13 @@ Clone the Git Repository or Download the ZIP package and expand. CD into the fol
 
 Build Docker Image:
 ```
-docker build -t hammadrauf/salt .
+docker build -t hammadrauf/saltmaster .
 ```
 OR Pull from Docker Hub, Quay.io (Not uploaded yet).
 
 Run Docker Conatiner:
 ```
-docker run --name salt01 --restart always -d -p 4505:4505 -p 4506:4506 -p 8000:8000 -v salt_config:/etc/salt hammadrauf/salt
+docker run --name salt01 --restart always -d -p 4505:4505 -p 4506:4506 -p 8000:8000 -v salt_config:/etc/salt hammadrauf/saltmaster
 ```
 
 Connect to BASH Shell in the Container:
