@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM docker.io/debian:bullseye
 ARG ARG_POWER_USER=salt
 ARG ARG_PU_PWD=salt
 RUN apt-get -y update && apt-get -y upgrade && apt-get -y --no-install-recommends install procps sudo init gnupg gnupg2 gnupg1 python3 python3-pip openssl curl net-tools nano
@@ -16,7 +16,7 @@ RUN echo ${ARG_PU_PWD} | sudo -S apt-get install -y salt-cloud
 RUN echo ${ARG_PU_PWD} | sudo -S apt-get install -y salt-api
 USER root
 # Salt-Master config
-RUN sh -c "mkdir /etc/salt/master.d"
+RUN sh -c "mkdir -p /etc/salt/master.d"
 RUN sh -c "echo 'instance: 0.0.0.0' | tee -a /etc/salt/master.d/master.conf"
 EXPOSE 4505
 EXPOSE 4506
