@@ -133,6 +133,27 @@ netstat -na | find "4505"
 netstat -ao | find "4505"
 ```
 
+Show Process ID in Windows (Running under podman machine - wsl):
+```
+C:\Users\uname>netstat -noa | find "4506"
+  TCP    127.0.0.1:4506         0.0.0.0:0              LISTENING       11816
+
+C:\Users\uname>netstat -noa | find "8000"
+  TCP    127.0.0.1:8000         0.0.0.0:0              LISTENING       11816
+
+C:\Users\uname>netstat -noa | find "4505"
+  TCP    127.0.0.1:4505         0.0.0.0:0              LISTENING       11816
+```  
+
+To Show Process Name in Windows:
+```
+C:\Users\uname>tasklist /fi "pid eq 11816"
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+wslhost.exe                  11816 Console                    1      7,948 K
+```
+
 On Windows 10/11 Port 4505, 4506 may be occupied by "IP Helper" Service in Windows 11. Disable the service (Or reconfigure Salt Master to use different ports).
 
 1. Click search and type in Services, open it.
